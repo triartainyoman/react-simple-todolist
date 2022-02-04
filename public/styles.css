@@ -95,8 +95,7 @@ hr {
 }
 
 .todo-footer {
-  margin-top: 50px;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
   display: flex;
   justify-content: space-between;
 }
