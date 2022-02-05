@@ -58,10 +58,11 @@
 }
 
 .img {
-  height: 282;
+  height: 282px;
   width: 100%;
-  overflow: hidden;
+  object-fit: cover;
   position: absolute;
+  object-position: center;
   z-index: -1;
   top: 0;
 }

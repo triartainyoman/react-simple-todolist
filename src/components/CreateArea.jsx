@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import Fab from "@mui/material/Fab";
+import AddIcon from "@mui/icons-material/Add";
+import Zoom from "@mui/material/Zoom";
 
 function CreateArea(props) {
   const [todo, setTodo] = useState("");
+  const [isClick, setIsClick] = useState(false);
 
   function handleChange(event) {
     setTodo(event.target.value);
@@ -11,6 +15,11 @@ function CreateArea(props) {
     props.onAdd(todo);
     event.preventDefault();
     setTodo("");
+    setIsClick(false);
+  }
+
+  function zoomIn() {
+    setIsClick(true);
   }
 
   return (
@@ -18,6 +27,7 @@ function CreateArea(props) {
       <div className="input-wrapper">
         <input
           onChange={handleChange}
+          onClick={zoomIn}
           className="content"
           type="text"
           name="content"
@@ -25,7 +35,11 @@ function CreateArea(props) {
           placeholder="Create a new note..."
           autoComplete="off"
         />
-        <button onClick={submitTodo}>Add</button>
+        <Zoom in={isClick}>
+          <Fab color="secondary" onClick={submitTodo}>
+            <AddIcon />
+          </Fab>
+        </Zoom>
       </div>
     </form>
   );
