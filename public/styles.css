@@ -42,7 +42,7 @@
 }
 
 .input-wrapper input:focus {
-  outline: none;
+  outline-color: rgba(121, 124, 148, 0.3);
 }
 
 .input-wrapper button {
@@ -55,6 +55,10 @@
   border-radius: 6px;
   border: 0;
   color: white;
+}
+
+.input-wrapper button:hover {
+  background-color: #454757;
 }
 
 .img {
