@@ -36,7 +36,7 @@ function CreateArea(props) {
           autoComplete="off"
         />
         <Zoom in={isClick}>
-          <Fab color="secondary" onClick={submitTodo}>
+          <Fab type="submit" color="secondary" onClick={submitTodo}>
             <AddIcon />
           </Fab>
         </Zoom>
