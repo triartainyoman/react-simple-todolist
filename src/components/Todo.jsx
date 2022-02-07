@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import Checkbox from "@mui/material/Checkbox";
 
 function Todo(props) {
   const [done, setDone] = useState(false);
@@ -10,10 +9,13 @@ function Todo(props) {
     color: "#CACDE8",
   };
 
-  const [isHover, setIsHover] = useState(false);
-
   function handleClick(event) {
     setDone(event.target.checked);
+    if (done === false) {
+      props.onChecked(props.id);
+    } else {
+      props.onUnchecked(props.id);
+    }
   }
 
   function handleDelete() {

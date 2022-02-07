@@ -21,6 +21,25 @@ function App() {
     });
   }
 
+  function checkedTodo(todo) {
+    const newTodos = [...todos];
+    newTodos[todo].isDone = true;
+    setTodos(newTodos);
+  }
+
+  function uncheckedTodo(todo) {
+    const newTodos = [...todos];
+    newTodos[todo].isDone = false;
+    setTodos(newTodos);
+  }
+
+  function clearComplete() {
+    const newTodo = todos.filter((todoItem) => {
+      return !todoItem.isDone;
+    });
+    setTodos(newTodo);
+  }
+
   return (
     <div>
       <img className="img" src="/background.png" />
@@ -29,11 +48,20 @@ function App() {
         <CreateArea onAdd={addTodo} />
         <div className="todo">
           {todos.map((todo, index) => (
-            <Todo key={index} onDelete={deleteTodo} id={index} content={todo} />
+            <Todo
+              key={todo.content + "_" + index}
+              onDelete={deleteTodo}
+              onChecked={checkedTodo}
+              onUnchecked={uncheckedTodo}
+              id={index}
+              content={todo.content}
+            />
           ))}
           <div className="todo-footer">
             <p>{todos.length} items left</p>
-            <p style={{ cursor: "pointer" }}>Clear completed</p>
+            <p onClick={clearComplete} style={{ cursor: "pointer" }}>
+              Clear completed
+            </p>
           </div>
         </div>
       </div>
