@@ -49,7 +49,7 @@ function App() {
         <div className="todo">
           {todos.map((todo, index) => (
             <Todo
-              key={todo.content + "_" + index}
+              key={todo.content}
               onDelete={deleteTodo}
               onChecked={checkedTodo}
               onUnchecked={uncheckedTodo}
